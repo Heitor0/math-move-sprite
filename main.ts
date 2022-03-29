@@ -5,21 +5,18 @@ input.onLogoEvent(TouchButtonEvent.LongPressed, function () {
 input.onButtonPressed(Button.A, function () {
     sprite.move(-1)
 })
-input.onPinPressed(TouchPin.P2, function () {
+input.onGesture(Gesture.ScreenUp, function () {
+    sprite.change(LedSpriteProperty.Y, -1)
+})
+input.onGesture(Gesture.ScreenDown, function () {
     sprite.change(LedSpriteProperty.Y, 1)
 })
-function doSomething (num_more: number) {
-	
-}
 input.onButtonPressed(Button.B, function () {
     sprite.move(1)
 })
 input.onGesture(Gesture.Shake, function () {
-    basic.showString("CONTROLS: Logo: up P2: down B: right A: left")
+    basic.showString("RESET")
     control.reset()
-})
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    sprite.change(LedSpriteProperty.Y, -1)
 })
 let sprite: game.LedSprite = null
 sprite = game.createSprite(2, 2)
